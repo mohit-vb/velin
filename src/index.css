@@ -17,8 +17,14 @@ h6 {
   font-family: "Fraunces", serif;
 }
 
+@layer base {
+  p {
+    @apply leading-11;
+  }
+}
+
 @utility page-container {
-  @apply mx-auto my-0 w-full max-w-[144rem] px-6;
+  @apply mx-auto my-0 w-full max-w-[144rem] px-16;
 }
 
 @utility eyebrow {

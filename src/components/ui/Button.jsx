@@ -4,7 +4,7 @@ export default function Button({ children, type }) {
   let classes;
   if (type === "primary")
     classes =
-      "border-none bg-amber-700 hover:bg-amber-700 hover:shadow-md hover:-translate-y-1";
+      "border-none bg-amber-700 text-amber-50 hover:bg-amber-700 hover:shadow-md hover:-translate-y-1";
   if (type === "secondary") classes = "border-amber-700";
   return <button className={`${commonClasses} ${classes}`}>{children}</button>;
 }
