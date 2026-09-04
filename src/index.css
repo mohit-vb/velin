@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Fraunces", serif;
+}
+
+@utility page-container {
+  @apply mx-auto my-0 w-full max-w-[144rem] px-6;
+}
+
+@utility eyebrow {
+  @apply text-xl tracking-wider uppercase font-semibold;
+}
