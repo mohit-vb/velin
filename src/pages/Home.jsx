@@ -1,10 +1,11 @@
-import { ArtOfScent, Hero } from "../components/home";
+import { ArtOfScent, Featured, Hero } from "../components/home";
 
 export default function Home() {
   return (
     <>
       <Hero />
       <ArtOfScent />
+      <Featured />
     </>
   );
 }

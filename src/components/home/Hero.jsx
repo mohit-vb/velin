@@ -4,7 +4,7 @@ import Button from "../ui/Button";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen overflow-hidden">
+    <div className="relative min-h-screen overflow-hidden">
       <picture className="absolute inset-0">
         <source media="(max-width:768px)" srcSet={heroImgMobile} />
         <img
@@ -33,6 +33,6 @@ export default function Hero() {
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 }
