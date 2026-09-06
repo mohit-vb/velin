@@ -3,7 +3,7 @@ import artOfScentImg2 from "../../assets/art-of-scent-2.webp";
 import Button from "../ui/Button";
 export default function ArtOfScent() {
   return (
-    <section>
+    <section className="section">
       <div className="page-container">
         <div className="flex flex-col md:flex-row items-center justify-center gap-8">
           <div className=" relative sm:w-2/3 lg:w-2/5">
@@ -20,17 +20,17 @@ export default function ArtOfScent() {
             <p className="text-3xl  text-justify md:text-left">
               We don't design fragrances to be liked immediately. We design them
               to be recognized — the way a familiar room, or a familiar person,
-              is recognized before it's understood. Every Velin composition is
-              built to reveal itself in stages: an opening that invites, a heart
-              that settles, a base that stays behind on a scarf or a sleeve long
-              after the wearer has gone.
+              is recognized before it's understood.
             </p>
             <p className="text-2xl text-justify md:text-left">
-              This is why we release slowly. Six fragrances, each composed over
-              a period of months, each tested against the same question: does it
+              Every Velin composition is built to reveal itself in stages: an
+              opening that invites, a heart that settles, a base that stays
+              behind on a scarf or a sleeve long after the wearer has gone. This
+              is why we release slowly. Six fragrances, each composed over a
+              period of months, each tested against the same question: does it
               still feel true a year from now?
             </p>
-            <Button type="primary">Read Our Story →</Button>
+            <Button type="tertiary">Read Our Story →</Button>
           </div>
         </div>
       </div>

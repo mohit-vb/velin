@@ -18,9 +18,6 @@ h6 {
 }
 
 @layer base {
-  section {
-    @apply py-16 sm:py-32;
-  }
   h2 {
     @apply text-6xl text-balance md:text-7xl;
   }
@@ -35,4 +32,9 @@ h6 {
 
 @utility eyebrow {
   @apply inline-block text-xl tracking-wider uppercase font-semibold;
+}
+
+@utility section {
+  @apply py-16 sm:py-32;
+
 }

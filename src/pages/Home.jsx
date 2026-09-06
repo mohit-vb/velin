@@ -1,4 +1,4 @@
-import { ArtOfScent, Featured, Hero } from "../components/home";
+import { Hero, ArtOfScent, Featured, Signature } from "../components/home";
 
 export default function Home() {
   return (
@@ -6,6 +6,7 @@ export default function Home() {
       <Hero />
       <ArtOfScent />
       <Featured />
+      <Signature />
     </>
   );
 }

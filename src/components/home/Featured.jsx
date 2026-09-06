@@ -1,7 +1,7 @@
 import { featuredCollection } from "../../constants";
 export default function Featured() {
   return (
-    <section className="min-h-screen">
+    <section className="section">
       <span className="eyebrow block text-center">The Collection</span>
       <h2 className="text-center">Four ways to be remembered.</h2>
       <div className="page-container">
