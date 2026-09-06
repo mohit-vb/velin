@@ -1,4 +1,4 @@
-export default function Button({ children, type }) {
+export default function Button({ children, type, className = "" }) {
   let commonClasses =
     "font-semibold text-2xl px-12 py-6 cursor-pointer transition-all duration-200 ease-in ";
   let classes;
@@ -11,7 +11,9 @@ export default function Button({ children, type }) {
     classes =
       "text-amber-950 border-b font-semibold text-2xl pb-4 cursor-pointer hover:tracking-wider transition-all";
   return (
-    <button className={`${type !== "tertiary" && commonClasses} ${classes}`}>
+    <button
+      className={`${type !== "tertiary" && commonClasses} ${classes} ${className}`}
+    >
       {children}
     </button>
   );

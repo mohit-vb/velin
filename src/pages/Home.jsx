@@ -1,4 +1,10 @@
-import { Hero, ArtOfScent, Featured, Signature } from "../components/home";
+import {
+  Hero,
+  ArtOfScent,
+  Featured,
+  Signature,
+  NewsLetter,
+} from "../components/home";
 
 export default function Home() {
   return (
@@ -7,6 +13,7 @@ export default function Home() {
       <ArtOfScent />
       <Featured />
       <Signature />
+      <NewsLetter />
     </>
   );
 }
