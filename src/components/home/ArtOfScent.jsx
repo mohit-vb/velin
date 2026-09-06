@@ -3,7 +3,7 @@ import artOfScentImg2 from "../../assets/art-of-scent-2.webp";
 import Button from "../ui/Button";
 export default function ArtOfScent() {
   return (
-    <section className="section">
+    <section className="section mt-16">
       <div className="page-container">
         <div className="flex flex-col md:flex-row items-center justify-center gap-8">
           <div className=" relative sm:w-2/3 lg:w-2/5">

@@ -2,7 +2,7 @@ import Button from "../ui/Button";
 
 export default function NewsLetter() {
   return (
-    <section className="section border-b-amber-950/10">
+    <section className="section">
       <div className="flex flex-col items-center gap-4">
         <span className="eyebrow">STAY CLOSE</span>
         <h2 className="text-center">Notes worth remembering</h2>

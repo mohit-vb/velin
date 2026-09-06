@@ -25,3 +25,32 @@ export const featuredCollection = [
     perfumeImg: featuredImg4,
   },
 ];
+
+export const footerLinks = [
+  {
+    title: "Shop",
+    links: [
+      { label: "All Fragrances", href: "/shop" },
+      { label: "New Arrivals", href: "/shop?sort=new" },
+      { label: "Best Sellers", href: "/shop?sort=bestsellers" },
+      { label: "Collections", href: "/collections" },
+    ],
+  },
+  {
+    title: "About",
+    links: [
+      { label: "Our Story", href: "/about" },
+      { label: "Ingredients", href: "/ingredients" },
+      { label: "Journal", href: "/journal" },
+    ],
+  },
+  {
+    title: "Customer Care",
+    links: [
+      { label: "Contact", href: "/contact" },
+      { label: "Shipping", href: "/shipping" },
+      { label: "Returns", href: "/returns" },
+      { label: "FAQ", href: "/faq" },
+    ],
+  },
+];

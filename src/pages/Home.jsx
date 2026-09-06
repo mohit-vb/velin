@@ -14,6 +14,7 @@ export default function Home() {
       <Featured />
       <Signature />
       <NewsLetter />
+      <div className="h-px w-full bg-amber-950/10" />
     </>
   );
 }
