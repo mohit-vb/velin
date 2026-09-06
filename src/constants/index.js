@@ -1,28 +1,28 @@
-import featuredImg1 from "../assets/featured-1.webp";
-import featuredImg2 from "../assets/featured-2.webp";
-import featuredImg3 from "../assets/featured-3.webp";
-import featuredImg4 from "../assets/featured-4.webp";
+import productImg1 from "../assets/product-1.webp";
+import productImg2 from "../assets/product-2.webp";
+import productImg3 from "../assets/product-3.webp";
+import productImg4 from "../assets/product-4.webp";
 
 export const featuredCollection = [
   {
     id: "featured-01",
-    perfumeName: "Arabiyat Prestige Marwa",
-    perfumeImg: featuredImg1,
+    perfumeName: "Ambre Nu — Eau de Parfum",
+    perfumeImg: productImg1,
   },
   {
     id: "featured-02",
-    perfumeName: "Afnan Supremacy Collector's Edition",
-    perfumeImg: featuredImg2,
+    perfumeName: "Fumée Noire — Eau de Parfum",
+    perfumeImg: productImg2,
   },
   {
     id: "featured-03",
-    perfumeName: "Afnan Rare Reef Extrait",
-    perfumeImg: featuredImg3,
+    perfumeName: "Rose Voilée — Eau de Parfum",
+    perfumeImg: productImg3,
   },
   {
     id: "featured-04",
-    perfumeName: "Afnan Turathi Blue Pour Homme",
-    perfumeImg: featuredImg4,
+    perfumeName: "Sel & Mousse — Eau de Parfum",
+    perfumeImg: productImg4,
   },
 ];
 
@@ -42,6 +42,7 @@ export const footerLinks = [
       { label: "Our Story", href: "/about" },
       { label: "Ingredients", href: "/ingredients" },
       { label: "Journal", href: "/journal" },
+      { label: "Gift Guide", href: "/gift" },
     ],
   },
   {

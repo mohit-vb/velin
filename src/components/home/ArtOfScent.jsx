@@ -5,14 +5,9 @@ export default function ArtOfScent() {
   return (
     <section className="section mt-16">
       <div className="page-container">
-        <div className="flex flex-col md:flex-row items-center justify-center gap-8">
-          <div className=" relative sm:w-2/3 lg:w-2/5">
-            <figure className="md:w-2/4">
-              <img src={artOfScentImg} />
-            </figure>
-            <figure className="opacity-0 md:opacity-100 w-2/4 absolute right-0 top-0 scale-80">
-              <img src={artOfScentImg2} />
-            </figure>
+        <div className="flex flex-col md:flex-row items-center justify-center gap-4">
+          <div className="h-full sm:w-2/3 lg:w-2/5 flex items-center justify-center">
+            <img src={artOfScentImg} className="w-130" />
           </div>
           <div className="sm:w-2/3 lg:w-3/5 text-center md:text-left flex flex-col items-center md:items-start gap-8">
             <span className="eyebrow">New house of scent</span>

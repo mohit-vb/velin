@@ -13,7 +13,7 @@ export default function NewsLetter() {
         <form className="flex flex-col sm:flex-row items-center gap-4 sm:gap-2 sm:w-1/3 sm:h-20 mt-8">
           <input
             className="border border-amber-900/20 w-100 sm:w-2/3 sm:h-full py-6 sm:py-0 px-4 placeholder:text-xl focus:outline-amber-900/80 focus:shadow-sm"
-            placeholder="Your Email"
+            placeholder="Your email"
           />
           <Button type="primary" className="sm:w-1/3">
             Subscribe
