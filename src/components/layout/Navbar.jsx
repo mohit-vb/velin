@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import Logo from "../ui/Logo";
 import { navMenu } from "../../constants";
+import { href, NavLink } from "react-router";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -22,14 +23,14 @@ export default function Navbar() {
             {/* Desktop Navigation */}
             <nav aria-label="Global" className="hidden md:block">
               <ul className="flex items-center gap-20 text-sm">
-                {navMenu.map(({ id, title }) => (
+                {navMenu.map(({ id, title, toHref }) => (
                   <li key={id}>
-                    <a
+                    <NavLink
                       className="text-3xl text-stone-950 transition-colors hover:text-stone-950/75"
-                      href="#"
+                      to={toHref}
                     >
                       {title}
-                    </a>
+                    </NavLink>
                   </li>
                 ))}
               </ul>
@@ -65,15 +66,15 @@ export default function Navbar() {
           `}
         >
           <ul className="flex flex-col items-center gap-8 text-sm">
-            {navMenu.map(({ id, title }) => (
+            {navMenu.map(({ id, title, toHref }) => (
               <li key={id}>
-                <a
+                <NavLink
                   className="text-3xl text-stone-950 transition-colors hover:text-stone-950/75"
-                  href="#"
+                  to={toHref}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {title}
-                </a>
+                </NavLink>
               </li>
             ))}
           </ul>

@@ -1,11 +1,13 @@
 import { Navbar, Footer } from "./components/layout";
-import { Home } from "./pages";
+import AppRoutes from "./routes/AppRoutes";
 
 export default function App() {
   return (
     <div className="bg-amber-50">
       <Navbar />
-      <Home />
+      <main>
+        <AppRoutes />
+      </main>
       <Footer />
     </div>
   );

@@ -537,7 +537,7 @@ export const products = [
 ];
 
 export const navMenu = [
-  { id: "home-01", title: "Home" },
-  { id: "products-02", title: "Products" },
-  { id: "cart-03", title: "Cart" },
+  { id: "home-01", title: "Home", toHref: "/" },
+  { id: "products-02", title: "Store", toHref: "/store" },
+  { id: "cart-03", title: "Cart", toHref: "/cart" },
 ];
