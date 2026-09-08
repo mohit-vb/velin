@@ -1,7 +1,7 @@
-import { Menu, X } from "lucide-react";
-import { navMenu } from "../../constants";
-import Logo from "../ui/Logo";
 import { useState } from "react";
+import { Menu, X } from "lucide-react";
+import Logo from "../ui/Logo";
+import { navMenu } from "../../constants";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
