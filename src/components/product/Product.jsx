@@ -1,7 +1,14 @@
+import { useNavigate } from "react-router";
+
 export default function Product({ product }) {
-  const { name, family, img, sizes } = product;
+  const navigate = useNavigate();
+  const { id, name, family, img, sizes } = product;
+
+  const handleNavigateToDetails = function () {
+    navigate(`/product/${id}`);
+  };
   return (
-    <div className=" group cursor-pointer">
+    <div className=" group cursor-pointer" onClick={handleNavigateToDetails}>
       <figure className="w-full overflow-hidden">
         <img
           src={img}
