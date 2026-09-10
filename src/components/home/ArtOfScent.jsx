@@ -1,5 +1,5 @@
 import artOfScentImg from "../../assets/art-of-scent.webp";
-import artOfScentImg2 from "../../assets/art-of-scent-2.webp";
+
 import Button from "../ui/Button";
 export default function ArtOfScent() {
   return (
