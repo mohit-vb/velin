@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import Logo from "../ui/Logo";
 import { navMenu } from "../../constants";
-import { href, NavLink } from "react-router";
+import { NavLink } from "react-router";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,9 +13,9 @@ export default function Navbar() {
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <div className="flex-1 md:flex md:items-center md:gap-12">
-            <a className="block" href="#">
+            <NavLink className="block" to="/">
               <Logo />
-            </a>
+            </NavLink>
           </div>
 
           {/* Desktop Navigation + Mobile Button */}
