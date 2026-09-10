@@ -1,6 +1,7 @@
 import { Minus, Plus } from "lucide-react";
 import { useState } from "react";
-const btnClasses = `flex h-18 w-18 items-center justify-center rounded-l-lg text-stone-600 hover:bg-amber-100 disabled:opacity-40 disabled:hover:bg-transparent transition-colors cursor-pointer`;
+
+const btnClasses = `flex h-18 w-22 items-center justify-center rounded-l-lg text-stone-600 hover:bg-amber-100 disabled:opacity-40 disabled:hover:bg-transparent transition-colors cursor-pointer`;
 
 export default function QuantityCounter({ min = 1, max = 10, onChange }) {
   const [quantity, setQuantity] = useState(1);
@@ -41,7 +42,7 @@ export default function QuantityCounter({ min = 1, max = 10, onChange }) {
         className={btnClasses}
         aria-label="Decrease quantity"
       >
-        <Minus className="h-5" />
+        <Minus className="h-6" />
       </button>
 
       {/* Quantity Input / Display */}
@@ -49,7 +50,7 @@ export default function QuantityCounter({ min = 1, max = 10, onChange }) {
         type="number"
         value={quantity}
         onChange={handleInputChange}
-        className="h-18 w-22 border-x border-gray-200 text-center text-xl font-semibold text-gray-800 focus:outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+        className={`h-18 w-22 border-x border-gray-200 text-center text-xl font-semibold text-gray-800 focus:outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none`}
       />
 
       {/* Increment Button */}
@@ -58,7 +59,7 @@ export default function QuantityCounter({ min = 1, max = 10, onChange }) {
         disabled={quantity >= max}
         className={btnClasses}
       >
-        <Plus className="h-5" />
+        <Plus className="h-6" />
       </button>
     </div>
   );
