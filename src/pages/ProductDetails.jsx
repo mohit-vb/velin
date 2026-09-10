@@ -39,7 +39,7 @@ export default function ProductDetails() {
 
   return (
     <>
-      <section className="mt-10 section ">
+      <section className="mt-10 section">
         <div className="page-container">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
             <div className="w-full aspect-square md:aspect-auto md:h-[80vh] overflow-hidden rounded-lg">
