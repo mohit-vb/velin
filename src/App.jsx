@@ -3,7 +3,7 @@ import AppRoutes from "./routes/AppRoutes";
 
 export default function App() {
   return (
-    <div className="bg-amber-50">
+    <div className="bg-amber-50 selection:bg-amber-500 selection:text-amber-50">
       <Navbar />
       <main>
         <AppRoutes />
