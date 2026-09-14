@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { useParams } from "react-router";
 import { products } from "../constants";
+import { useCart } from "../hooks/useCart";
 
 import Button from "../components/ui/Button";
 import QuantityCounter from "../components/product/QuantityCounter";
@@ -27,6 +29,9 @@ export default function ProductDetails() {
     sizes,
     tagline,
   } = product;
+  const [selectedSize, setSelectedSize] = useState(sizes[0]);
+  const [quantity, setQuantity] = useState(1);
+  const { dispatch } = useCart();
 
   const profileFacts = [
     { id: 1, label: "Warmth", value: labelForScore(profile.warmth) },
@@ -36,6 +41,18 @@ export default function ProductDetails() {
     { id: 5, label: "Sillage", value: sillage },
     { id: 6, label: "Concentration", value: concentration.match(/\d+-\d+%/) },
   ];
+
+  const handleAddToCart = function () {
+    const cartItem = {
+      id,
+      img,
+      name,
+      size: selectedSize.size,
+      price: selectedSize.price,
+      quantity,
+    };
+    dispatch({ type: "cart/addItem", payload: cartItem });
+  };
 
   return (
     <>
@@ -60,25 +77,30 @@ export default function ProductDetails() {
                 <Star className="h-8 fill-amber-600 stroke-0" />
                 {rating} <span>( {reviewCount} )</span>
               </div>
-              <span className="text-4xl mt-4">&#8377;{sizes[0].price}</span>
+              <span className="text-4xl mt-4">&#8377;{selectedSize.price}</span>
               <span className="mt-8 uppercase tracking-wider font-bold text-xl opacity-60">
                 Size
               </span>
               <div className="flex items-center gap-4 ">
-                {sizes.map(({ size, price }) => (
+                {sizes.map((sizeOption) => (
                   <button
-                    className="border border-amber-700/20 py-2 px-4 text-xl hover:bg-amber-700 hover:text-amber-50 cursor-pointer active:bg-amber-700 active:text-amber-50"
-                    key={size}
+                    className={`border py-2 px-4 text-xl cursor-pointer transition-colors ${
+                      selectedSize.size === sizeOption.size
+                        ? "border-amber-700 bg-amber-700 text-amber-50"
+                        : "border-amber-700/20 hover:bg-amber-700 hover:text-amber-50"
+                    }`}
+                    key={sizeOption.size}
+                    onClick={() => setSelectedSize(sizeOption)}
                   >
-                    {size}
+                    {sizeOption.size}
                   </button>
                 ))}
               </div>
               <span className="mt-8 uppercase tracking-wider font-bold text-xl opacity-60">
                 Quantity
               </span>
-              <QuantityCounter />
-              <Button type="primary" className="mt-8">
+              <QuantityCounter quantity={quantity} setQuantity={setQuantity} />
+              <Button type="primary" className="mt-8" onClick={handleAddToCart}>
                 Add To Cart
               </Button>
               <p className="text-3xl opacity-70 mt-8">{description}</p>

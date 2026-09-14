@@ -3,9 +3,13 @@ import { Menu, X } from "lucide-react";
 import Logo from "../ui/Logo";
 import { navMenu } from "../../constants";
 import { NavLink } from "react-router";
+import { useCart } from "../../hooks/useCart";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { cartItems } = useCart();
+  const totalCartItems = cartItems.length;
+
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-amber-200/50 shadow-sm backdrop-blur-md bg-amber-50/80">
       <div className="page-container">
@@ -29,7 +33,14 @@ export default function Navbar() {
                       className="text-3xl text-stone-950 transition-colors hover:text-stone-950/75"
                       to={toHref}
                     >
-                      {title}
+                      <span className="relative">
+                        {title}
+                        {toHref === "/cart" && totalCartItems > 0 && (
+                          <span className="absolute top-0 -right-7 flex h-7 w-7 items-center justify-center rounded-full bg-amber-600 text-base font-bold text-white">
+                            {`${totalCartItems}`.padStart(2, 0)}
+                          </span>
+                        )}
+                      </span>
                     </NavLink>
                   </li>
                 ))}

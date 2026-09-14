@@ -1,33 +1,56 @@
 import { Minus, Plus } from "lucide-react";
-import { useState } from "react";
 
 const btnClasses = `flex h-18 w-22 items-center justify-center rounded-l-lg text-stone-600 hover:bg-amber-100 disabled:opacity-40 disabled:hover:bg-transparent transition-colors cursor-pointer`;
 
-export default function QuantityCounter({ min = 1, max = 10, onChange }) {
-  const [quantity, setQuantity] = useState(1);
-
+export default function QuantityCounter({
+  min = 1,
+  max = 10,
+  onChange,
+  quantity,
+  setQuantity,
+  onIncrease,
+  onDecrease,
+}) {
   const handleDecrement = () => {
-    if (quantity > min) {
-      const newQty = quantity - 1;
-      setQuantity(newQty);
-      if (onChange) onChange(newQty);
+    if (quantity <= min) return;
+
+    if (onDecrease) {
+      onDecrease();
+      return;
     }
+
+    const newQty = quantity - 1;
+    setQuantity(newQty);
+
+    if (onChange) onChange(newQty);
   };
 
   const handleIncrement = () => {
-    if (quantity < max) {
-      const newQty = quantity + 1;
-      setQuantity(newQty);
-      if (onChange) onChange(newQty);
+    if (quantity >= max) return;
+
+    if (onIncrease) {
+      onIncrease();
+      return;
     }
+
+    const newQty = quantity + 1;
+    setQuantity(newQty);
+
+    if (onChange) onChange(newQty);
   };
 
   const handleInputChange = (e) => {
     const value = parseInt(e.target.value, 10);
+
     if (!isNaN(value)) {
       const clampedValue = Math.min(Math.max(value, min), max);
+
+      if (onChange) {
+        onChange(clampedValue);
+        return;
+      }
+
       setQuantity(clampedValue);
-      if (onChange) onChange(clampedValue);
     } else if (e.target.value === "") {
       setQuantity("");
     }
@@ -35,7 +58,6 @@ export default function QuantityCounter({ min = 1, max = 10, onChange }) {
 
   return (
     <div className="self-start flex items-start border border-amber-950/10 shadow-sm">
-      {/* Decrement Button */}
       <button
         onClick={handleDecrement}
         disabled={quantity <= min}
@@ -45,7 +67,6 @@ export default function QuantityCounter({ min = 1, max = 10, onChange }) {
         <Minus className="h-6" />
       </button>
 
-      {/* Quantity Input / Display */}
       <input
         type="number"
         value={quantity}
@@ -53,11 +74,11 @@ export default function QuantityCounter({ min = 1, max = 10, onChange }) {
         className={`h-18 w-22 border-x border-gray-200 text-center text-xl font-semibold text-gray-800 focus:outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none`}
       />
 
-      {/* Increment Button */}
       <button
         onClick={handleIncrement}
         disabled={quantity >= max}
         className={btnClasses}
+        aria-label="Increase quantity"
       >
         <Plus className="h-6" />
       </button>
