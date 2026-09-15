@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router";
 import { Home, Store, ProductDetails, Cart, Checkout } from "../pages";
-import PageNotFound from "../components/layout/PageNotFound";
+import PageNotFound from "../pages/PageNotFound";
 
 export default function AppRoutes() {
   return (
