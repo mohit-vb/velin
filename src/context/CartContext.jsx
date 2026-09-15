@@ -17,11 +17,11 @@ const getInitialState = function (initialState) {
 const reducer = function (state, action) {
   switch (action.type) {
     case "cart/addItem": {
-      const existing = state.cartItems.find(
+      const itemExists = state.cartItems.some(
         (item) =>
           item.id === action.payload.id && item.size === action.payload.size,
       );
-      if (existing) {
+      if (itemExists) {
         return {
           ...state,
           cartItems: state.cartItems.map((item) =>
