@@ -1,7 +1,9 @@
+import { useNavigate } from "react-router";
 import heroImg from "../../assets/hero.webp";
 import Button from "../ui/Button";
 
 export default function Hero() {
+  const navigate = useNavigate();
   return (
     <div className="relative min-h-screen overflow-hidden">
       <picture className="absolute inset-0">
@@ -25,7 +27,9 @@ export default function Hero() {
             filler. Nothing you'll want to explain.
           </p>
           <div className="flex flex-col w-full sm:flex-row gap-4 sm:gap-8 mt-4">
-            <Button type="primary">Shop Fragrances</Button>
+            <Button type="primary" onClick={() => navigate("/store")}>
+              Shop Fragrances
+            </Button>
             <Button type="secondary">Find Your Signature</Button>
           </div>
         </div>
