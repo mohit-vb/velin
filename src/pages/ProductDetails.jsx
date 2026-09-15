@@ -44,7 +44,7 @@ export default function ProductDetails() {
 
   const handleAddToCart = function () {
     const cartItem = {
-      id,
+      id: `${id}-${selectedSize.size}`,
       img,
       name,
       size: selectedSize.size,

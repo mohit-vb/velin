@@ -6,6 +6,10 @@ import { Link } from "react-router";
 
 export default function Cart() {
   const { cartItems } = useCart();
+  const totalItems = cartItems.reduce(
+    (total, item) => total + item.quantity,
+    0,
+  );
 
   return (
     <>
@@ -15,13 +19,12 @@ export default function Cart() {
             <>
               <div className="flex items-end gap-8">
                 <h2>Your Cart</h2>
-                <span className="text-2xl opacity-70">( 3 items )</span>
+                <span className="text-2xl opacity-70">
+                  ( {totalItems} items )
+                </span>
               </div>
               <ul className="divide-y divide-amber-950/20 flex flex-col py-16">
-                {cartItems &&
-                  cartItems.map((item) => (
-                    <CartItem key={item.id} item={item} />
-                  ))}
+                {cartItems && cartItems.map((item) => <CartItem item={item} />)}
               </ul>
               <OrderSummary />
             </>
