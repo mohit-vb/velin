@@ -6,7 +6,7 @@ export default function CartItem({ item }) {
   const { id, img, name, size, price, quantity } = item;
   const { dispatch } = useCart();
   return (
-    <li className="flex gap-8 py-16" key={id}>
+    <li className="flex gap-8 py-16">
       <div className="h-60 w-50">
         <img
           src={img}

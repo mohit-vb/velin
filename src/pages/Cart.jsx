@@ -25,7 +25,7 @@ export default function Cart() {
               </div>
               <ul className="divide-y divide-amber-950/20 flex flex-col py-16">
                 {cartItems.map((item) => (
-                  <CartItem item={item} />
+                  <CartItem item={item} key={item.id} />
                 ))}
               </ul>
               <OrderSummary />
