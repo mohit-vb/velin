@@ -35,6 +35,7 @@ export default function Navbar() {
                     <NavLink
                       className="text-3xl text-stone-950 transition-colors hover:text-stone-950/75"
                       to={toHref}
+                      aria-current="page"
                     >
                       <span className="relative">
                         {title}

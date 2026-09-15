@@ -13,12 +13,12 @@ export default function Cart() {
 
   return (
     <>
-      <section className="mt-10 section">
+      <section className="mt-10 section" aria-labelledby="cart-title">
         <div className="page-container">
           {cartItems.length > 0 ? (
             <>
               <div className="flex items-end gap-8">
-                <h2>Your Cart</h2>
+                <h2 id="cart-title">Your Cart</h2>
                 <span className="text-2xl opacity-70">
                   ( {totalItems} items )
                 </span>

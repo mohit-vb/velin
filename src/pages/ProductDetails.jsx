@@ -43,7 +43,11 @@ export default function ProductDetails() {
     { id: 3, label: "Intensity", value: labelForScore(profile.intensity) },
     { id: 4, label: "Longevity", value: longevity },
     { id: 5, label: "Sillage", value: sillage },
-    { id: 6, label: "Concentration", value: concentration.match(/\d+-\d+%/) },
+    {
+      id: 6,
+      label: "Concentration",
+      value: concentration.match(/\d+-\d+%/)?.[0],
+    },
   ];
 
   const handleAddToCart = function () {
@@ -95,6 +99,7 @@ export default function ProductDetails() {
                     }`}
                     key={sizeOption.size}
                     onClick={() => setSelectedSize(sizeOption)}
+                    aria-pressed={selectedSize.size === sizeOption.size}
                   >
                     {sizeOption.size}
                   </button>

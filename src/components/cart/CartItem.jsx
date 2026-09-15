@@ -38,6 +38,7 @@ export default function CartItem({ item }) {
           <button
             className="text-xl"
             onClick={() => dispatch({ type: "cart/removeItem", payload: item })}
+            aria-label="Remove item from cart"
           >
             <Trash2 className="text-red-900 hover:text-red-500 cursor-pointer" />
           </button>
