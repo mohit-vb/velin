@@ -1,4 +1,10 @@
-export default function Button({ children, type, className = "", onClick }) {
+export default function Button({
+  children,
+  type,
+  className = "",
+  onClick,
+  disabled,
+}) {
   let commonClasses =
     "font-semibold text-2xl px-12 py-6 cursor-pointer transition-all duration-200 ease-in ";
   let classes;
@@ -14,6 +20,7 @@ export default function Button({ children, type, className = "", onClick }) {
     <button
       className={`${type !== "tertiary" && commonClasses} ${classes} ${className}`}
       onClick={onClick}
+      disabled={disabled}
     >
       {children}
     </button>

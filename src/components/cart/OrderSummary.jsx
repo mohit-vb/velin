@@ -5,7 +5,11 @@ import { useNavigate } from "react-router";
 const groupClasses = "flex items-center justify-between text-2xl";
 const valueClasses = "opacity-70";
 
-export default function OrderSummary({ onFormSubmit, forForm = false }) {
+export default function OrderSummary({
+  onFormSubmit,
+  forForm = false,
+  isFormValid,
+}) {
   const { cartItems } = useCart();
   const navigate = useNavigate();
 
@@ -36,7 +40,14 @@ export default function OrderSummary({ onFormSubmit, forForm = false }) {
         <h4>&#8377;{totalPrice + shippingFee}</h4>
       </div>
       {forForm ? (
-        <Button type="primary" onClick={() => onFormSubmit()}>
+        <Button
+          type="primary"
+          onClick={() => {
+            onFormSubmit();
+            navigate("/order-success");
+          }}
+          disabled={!isFormValid}
+        >
           Place Order
         </Button>
       ) : (

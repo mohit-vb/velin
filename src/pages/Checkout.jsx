@@ -12,6 +12,11 @@ export default function Checkout() {
     country: "India",
   });
 
+  const isFormValid = Object.values(formData).every(
+    (value) => value.trim() !== "",
+  );
+
+  console.log(isFormValid);
   const handleChange = function (e) {
     const { name, value } = e.target;
 
@@ -19,13 +24,14 @@ export default function Checkout() {
   };
 
   const handleFormSubmit = function () {
-    console.log(formData);
+    localStorage.setItem("order-info", JSON.stringify(formData));
     setFormData({
       email: "",
       phone: "",
       fullname: "",
       address: "",
       city: "",
+      pin: "",
       country: "India",
     });
   };
@@ -126,6 +132,21 @@ export default function Checkout() {
                           required
                         />
                       </div>
+                      <div className="flex flex-col gap-2">
+                        <label htmlFor="pin" className="text-xl">
+                          Pin
+                        </label>
+                        <input
+                          className={inputClasses}
+                          type="text"
+                          id="pin"
+                          name="pin"
+                          value={formData.pin}
+                          onChange={handleChange}
+                          placeholder="e.g. 413718"
+                          required
+                        />
+                      </div>
 
                       <div className="flex flex-col gap-2">
                         <label htmlFor="country" className="text-xl">
@@ -147,7 +168,11 @@ export default function Checkout() {
               </form>
             </div>
 
-            <OrderSummary onFormSubmit={handleFormSubmit} forForm={true} />
+            <OrderSummary
+              onFormSubmit={handleFormSubmit}
+              forForm={true}
+              isFormValid={isFormValid}
+            />
           </div>
         </div>
       </section>
