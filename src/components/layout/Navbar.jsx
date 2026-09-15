@@ -8,7 +8,10 @@ import { useCart } from "../../hooks/useCart";
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { cartItems } = useCart();
-  const totalCartItems = cartItems.length;
+  const totalItems = cartItems.reduce(
+    (total, item) => total + item.quantity,
+    0,
+  );
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-amber-200/50 shadow-sm backdrop-blur-md bg-amber-50/80">
@@ -35,9 +38,9 @@ export default function Navbar() {
                     >
                       <span className="relative">
                         {title}
-                        {toHref === "/cart" && totalCartItems > 0 && (
+                        {toHref === "/cart" && totalItems > 0 && (
                           <span className="absolute top-0 -right-7 flex h-7 w-7 items-center justify-center rounded-full bg-amber-600 text-base font-bold text-white">
-                            {`${totalCartItems}`.padStart(2, 0)}
+                            {`${totalItems}`.padStart(2, 0)}
                           </span>
                         )}
                       </span>
