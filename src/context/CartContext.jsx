@@ -53,7 +53,9 @@ const reducer = function (state, action) {
       return {
         ...state,
         cartItems: state.cartItems.map((item) =>
-          item.id === action.payload.id && item.size === action.payload.size
+          item.id === action.payload.id &&
+          item.size === action.payload.size &&
+          item.quantity > 1
             ? { ...item, quantity: item.quantity - 1 }
             : item,
         ),
