@@ -10,7 +10,7 @@ export default function OrderSummary({
   forForm = false,
   isFormValid,
 }) {
-  const { cartItems } = useCart();
+  const { cartItems, dispatch } = useCart();
   const navigate = useNavigate();
 
   const totalPrice = cartItems.reduce(
@@ -45,6 +45,7 @@ export default function OrderSummary({
           onClick={() => {
             onFormSubmit();
             navigate("/order-success");
+            dispatch({ type: "cart/clearCart" });
           }}
           disabled={!isFormValid}
         >

@@ -78,6 +78,12 @@ const reducer = function (state, action) {
       };
     }
 
+    case "cart/clearCart":
+      return {
+        ...state,
+        cartItems: [],
+      };
+
     default:
       throw new Error("Unknown Action");
   }
