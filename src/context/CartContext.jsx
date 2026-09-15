@@ -6,12 +6,16 @@ const initialState = {
 };
 
 const getInitialState = function (initialState) {
-  const storedCart = localStorage.getItem("cart");
+  try {
+    const storedCart = localStorage.getItem("cart");
 
-  return {
-    ...initialState,
-    cartItems: storedCart ? JSON.parse(storedCart) : [],
-  };
+    return {
+      ...initialState,
+      cartItems: storedCart ? JSON.parse(storedCart) : [],
+    };
+  } catch {
+    return initialState;
+  }
 };
 
 const reducer = function (state, action) {
