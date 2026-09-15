@@ -1,14 +1,10 @@
-import { useNavigate } from "react-router";
+import { Link } from "react-router";
 
 export default function Product({ product }) {
-  const navigate = useNavigate();
   const { id, name, family, img, sizes } = product;
 
-  const handleNavigateToDetails = function () {
-    navigate(`/product/${id}`);
-  };
   return (
-    <div className=" group cursor-pointer" onClick={handleNavigateToDetails}>
+    <Link to={`/product/${id}`} className=" group cursor-pointer">
       <figure className="w-full overflow-hidden">
         <img
           src={img}
@@ -28,6 +24,6 @@ export default function Product({ product }) {
           <span className="text-xl opacity-60">{sizes[0].size}</span>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
