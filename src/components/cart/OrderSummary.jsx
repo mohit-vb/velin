@@ -1,11 +1,13 @@
 import Button from "../ui/Button";
 import { useCart } from "../../hooks/useCart";
+import { useNavigate } from "react-router";
 
 const groupClasses = "flex items-center justify-between text-2xl";
 const valueClasses = "opacity-70";
 
-export default function OrderSummary() {
+export default function OrderSummary({ onFormSubmit, forForm = false }) {
   const { cartItems } = useCart();
+  const navigate = useNavigate();
 
   const totalPrice = cartItems.reduce(
     (total, item) => total + item.quantity * item.price,
@@ -33,7 +35,16 @@ export default function OrderSummary() {
         <h4>Total</h4>
         <h4>&#8377;{totalPrice + shippingFee}</h4>
       </div>
-      <Button type="primary">Proceed to checkout</Button>
+      {forForm ? (
+        <Button type="primary" onClick={() => onFormSubmit()}>
+          Place Order
+        </Button>
+      ) : (
+        <Button type="primary" onClick={() => navigate("/checkout")}>
+          Proceed to checkout
+        </Button>
+      )}
+
       <p className="text-center text-xl opacity-60">
         Complimentary shipping on orders over ₹6,000
       </p>
