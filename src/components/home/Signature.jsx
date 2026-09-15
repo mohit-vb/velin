@@ -17,7 +17,7 @@ export default function Signature() {
             Three fragrances built around a single hour: the last light of a
             dinner, the walk home, the door closing behind you.
           </p>
-          <Button type="primary" className="w-full sm:w-auto mt-4">
+          <Button type="secondary" className="w-full sm:w-auto mt-4">
             Explore the Collection
           </Button>
         </div>
