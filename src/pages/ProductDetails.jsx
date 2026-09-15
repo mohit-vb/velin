@@ -5,6 +5,7 @@ import { useCart } from "../hooks/useCart";
 
 import Button from "../components/ui/Button";
 import QuantityCounter from "../components/product/QuantityCounter";
+import PageNotFound from "./PageNotFound";
 import { labelForScore } from "../utils";
 import NoteRow from "../components/product/NoteRow";
 import { Star } from "lucide-react";
@@ -12,6 +13,12 @@ import { Star } from "lucide-react";
 export default function ProductDetails() {
   const { id } = useParams();
   const product = products.find((product) => product.id === id);
+  const [selectedSize, setSelectedSize] = useState(product?.sizes?.[0] ?? null);
+  const [quantity, setQuantity] = useState(1);
+  const { dispatch } = useCart();
+
+  if (!product) return <PageNotFound renderFor="product" />;
+
   const {
     about,
     concentration,
@@ -29,9 +36,6 @@ export default function ProductDetails() {
     sizes,
     tagline,
   } = product;
-  const [selectedSize, setSelectedSize] = useState(sizes[0]);
-  const [quantity, setQuantity] = useState(1);
-  const { dispatch } = useCart();
 
   const profileFacts = [
     { id: 1, label: "Warmth", value: labelForScore(profile.warmth) },
