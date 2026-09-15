@@ -1,7 +1,30 @@
+import { useState } from "react";
 import Product from "../components/product/Product";
 import { products } from "../constants";
 
 export default function Store() {
+  const [search, setSearch] = useState("");
+  const [sortBy, setSortBy] = useState("new");
+
+  const filteredProducts = [...products]
+    .filter((product) =>
+      product?.name?.toLowerCase().includes(search?.toLowerCase()),
+    )
+    .sort((a, b) => {
+      const priceA = Math.min(...a.sizes.map((size) => Number(size.price)));
+      const priceB = Math.min(...b.sizes.map((size) => Number(size.price)));
+
+      if (sortBy === "low-price") {
+        return priceA - priceB;
+      }
+
+      if (sortBy === "high-price") {
+        return priceB - priceA;
+      }
+
+      return 0;
+    });
+
   return (
     <>
       <section className="mt-10 section">
@@ -23,17 +46,23 @@ export default function Store() {
               type="text"
               placeholder=""
               className="w-full text-amber-950 border border-amber-900/20 sm:w-1/2 p-6 placeholder:text-xl focus:outline-amber-900/50 focus:shadow-sm text-xl"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
             />
-            <select className="w-full sm:w-auto text-amber-950 border border-amber-900/20 p-6 placeholder:text-xl focus:outline-amber-900/50 focus:shadow-sm text-xl cursor-pointer">
-              <option>Sort By Newest</option>
-              <option>Sort By Low Price</option>
-              <option>Sort By High Price</option>
+            <select
+              className="w-full sm:w-auto text-amber-950 border border-amber-900/20 p-6 placeholder:text-xl focus:outline-amber-900/50 focus:shadow-sm text-xl cursor-pointer"
+              value={sortBy}
+              onChange={(e) => setSortBy(e.target.value)}
+            >
+              <option value="new">Sort By Newest</option>
+              <option value="low-price">Sort By Low Price</option>
+              <option value="high-price">Sort By High Price</option>
             </select>
           </div>
 
           {/* products rendering start */}
           <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mt-24">
-            {products.map((product) => (
+            {filteredProducts.map((product) => (
               <Product product={product} key={product.id} />
             ))}
           </div>
