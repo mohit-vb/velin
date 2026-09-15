@@ -29,8 +29,7 @@ export default function OrderSuccess() {
                 <h4 className="text-3xl">Delivering to</h4>
                 <p className="text-2xl italic opacity-80">
                   {orderInfo.fullname}, {orderInfo.address}, {orderInfo.city},
-                  {orderInfo.pin}
-                  {orderInfo.country}
+                  {orderInfo.pin}, {orderInfo.country}
                 </p>
                 <h4 className="text-3xl mt-8">Estimated Delivery</h4>
                 <p className="text-2xl italic opacity-80 mb-6">

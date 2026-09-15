@@ -2,6 +2,7 @@ import { useState } from "react";
 import OrderSummary from "../components/cart/OrderSummary";
 const inputClasses =
   "border border-amber-900/20 w-full py-6 px-4 text-xl placeholder:text-xl focus:outline-amber-900/80 focus:shadow-sm";
+
 export default function Checkout() {
   const [formData, setFormData] = useState({
     email: "",
@@ -16,7 +17,6 @@ export default function Checkout() {
     (value) => value.trim() !== "",
   );
 
-  console.log(isFormValid);
   const handleChange = function (e) {
     const { name, value } = e.target;
 
@@ -38,7 +38,7 @@ export default function Checkout() {
 
   return (
     <>
-      <section className="section">
+      <section className="mt-10 section">
         <div className="page-container">
           <div className="flex flex-col gap-4">
             <span className="eyebrow">CHECKOUT</span>
@@ -46,7 +46,7 @@ export default function Checkout() {
 
             <div>
               <form>
-                <div className="grid grid-cols-2 gap-16 p-12">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-16 p-6 sm:p-12">
                   <div>
                     <h3 className="text-4xl mb-8">Contact Information</h3>
                     <div className="flex flex-col gap-8">

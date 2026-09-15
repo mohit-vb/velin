@@ -14,10 +14,10 @@ export default function Navbar() {
   );
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-amber-200/50 shadow-sm backdrop-blur-md bg-amber-50/80">
+    <header className=" fixed inset-x-0 top-0 z-50 border-b border-amber-200/50 shadow-sm backdrop-blur-md bg-amber-50/80">
       <div className="page-container">
         {/* Header */}
-        <div className="flex h-16 items-center justify-between">
+        <div className="flex h-18 items-center justify-between">
           {/* Logo */}
           <div className="flex-1 md:flex md:items-center md:gap-12">
             <NavLink className="block" to="/">
@@ -28,12 +28,12 @@ export default function Navbar() {
           {/* Desktop Navigation + Mobile Button */}
           <div className="flex items-center gap-6 md:gap-12">
             {/* Desktop Navigation */}
-            <nav aria-label="Global" className="hidden md:block">
+            <nav aria-label="Global" className="hidden md:block ">
               <ul className="flex items-center gap-20 text-sm">
                 {navMenu.map(({ id, title, toHref }) => (
                   <li key={id}>
                     <NavLink
-                      className="text-3xl text-stone-950 transition-colors hover:text-stone-950/75"
+                      className="uppercase tracking-wider text-3xl text-stone-950 transition-colors hover:text-stone-950/75"
                       to={toHref}
                       aria-current="page"
                     >
@@ -84,7 +84,7 @@ export default function Navbar() {
             {navMenu.map(({ id, title, toHref }) => (
               <li key={id}>
                 <NavLink
-                  className="text-3xl text-stone-950 transition-colors hover:text-stone-950/75"
+                  className="uppercase tracking-wider text-3xl text-stone-950 transition-colors hover:text-stone-950/75"
                   to={toHref}
                   onClick={() => setIsMenuOpen(false)}
                 >
